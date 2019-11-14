@@ -69,7 +69,7 @@ class WSSecurity extends Security {
         'oasis-200401-wss-wssecurity-utility-1.0.xsd');
 
     var now = new Date();
-    var created = toXMLDate(now);
+    var created = (options.wsuid ==="") ? toXMLDate(now) : options.wsuid;
     var timeStampXml = '';
     if (this._hasTimeStamp) {
       var expires = toXMLDate(new Date(now.getTime() + (1000 * 600)));
